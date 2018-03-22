@@ -1,0 +1,31 @@
+ -----------------
+ Symbol | Location
+ -------+---------
+ Loop   |   03E
+ Start  |   00E
+ add    |   04E
+ bit0   |   007
+ bit1   |   006
+ bit2   |   005
+ bit3   |   004
+ bit4   |   003
+ bit5   |   002
+ bit6   |   001
+ check0 |   02F
+ check1 |   02A
+ check2 |   025
+ check3 |   020
+ check4 |   01B
+ check5 |   016
+ check6 |   011
+ count  |   00A
+ diff   |   00C
+ endtog |   053
+ one    |   009
+ pbit   |   00B
+ sub    |   051
+ toggle |   049
+ update |   03F
+ x      |   008
+ zero   |   00D
+

@@ -1,0 +1,247 @@
+Ready to test \Users\dk\Desktop\NVCC\Computer Organization\Project Marie\Assembly Files\Multiplication.mex
+Starting run 1 with input: -20
+Testing input -20
+Cleaned test output: 400
+Expected output:     400
+Test output seems correct
+Run completed.
+Starting run 2 with input: -19
+Testing input -19
+Cleaned test output: 361
+Expected output:     361
+Test output seems correct
+Run completed.
+Starting run 3 with input: -18
+Testing input -18
+Cleaned test output: 324
+Expected output:     324
+Test output seems correct
+Run completed.
+Starting run 4 with input: -17
+Testing input -17
+Cleaned test output: 289
+Expected output:     289
+Test output seems correct
+Run completed.
+Starting run 5 with input: -16
+Testing input -16
+Cleaned test output: 256
+Expected output:     256
+Test output seems correct
+Run completed.
+Starting run 6 with input: -15
+Testing input -15
+Cleaned test output: 225
+Expected output:     225
+Test output seems correct
+Run completed.
+Starting run 7 with input: -14
+Testing input -14
+Cleaned test output: 196
+Expected output:     196
+Test output seems correct
+Run completed.
+Starting run 8 with input: -13
+Testing input -13
+Cleaned test output: 169
+Expected output:     169
+Test output seems correct
+Run completed.
+Starting run 9 with input: -12
+Testing input -12
+Cleaned test output: 144
+Expected output:     144
+Test output seems correct
+Run completed.
+Starting run 10 with input: -11
+Testing input -11
+Cleaned test output: 121
+Expected output:     121
+Test output seems correct
+Run completed.
+Starting run 11 with input: -10
+Testing input -10
+Cleaned test output: 100
+Expected output:     100
+Test output seems correct
+Run completed.
+Starting run 12 with input: -9
+Testing input -9
+Cleaned test output: 81
+Expected output:     81
+Test output seems correct
+Run completed.
+Starting run 13 with input: -8
+Testing input -8
+Cleaned test output: 64
+Expected output:     64
+Test output seems correct
+Run completed.
+Starting run 14 with input: -7
+Testing input -7
+Cleaned test output: 49
+Expected output:     49
+Test output seems correct
+Run completed.
+Starting run 15 with input: -6
+Testing input -6
+Cleaned test output: 36
+Expected output:     36
+Test output seems correct
+Run completed.
+Starting run 16 with input: -5
+Testing input -5
+Cleaned test output: 25
+Expected output:     25
+Test output seems correct
+Run completed.
+Starting run 17 with input: -4
+Testing input -4
+Cleaned test output: 16
+Expected output:     16
+Test output seems correct
+Run completed.
+Starting run 18 with input: -3
+Testing input -3
+Cleaned test output: 9
+Expected output:     9
+Test output seems correct
+Run completed.
+Starting run 19 with input: -2
+Testing input -2
+Cleaned test output: 4
+Expected output:     4
+Test output seems correct
+Run completed.
+Starting run 20 with input: -1
+Testing input -1
+Cleaned test output: 1
+Expected output:     1
+Test output seems correct
+Run completed.
+Starting run 21 with input: 0
+Testing input 0
+Cleaned test output: 0
+Expected output:     0
+Test output seems correct
+Run completed.
+Starting run 22 with input: 1
+Testing input 1
+Cleaned test output: 1
+Expected output:     1
+Test output seems correct
+Run completed.
+Starting run 23 with input: 2
+Testing input 2
+Cleaned test output: 4
+Expected output:     4
+Test output seems correct
+Run completed.
+Starting run 24 with input: 3
+Testing input 3
+Cleaned test output: 9
+Expected output:     9
+Test output seems correct
+Run completed.
+Starting run 25 with input: 4
+Testing input 4
+Cleaned test output: 16
+Expected output:     16
+Test output seems correct
+Run completed.
+Starting run 26 with input: 5
+Testing input 5
+Cleaned test output: 25
+Expected output:     25
+Test output seems correct
+Run completed.
+Starting run 27 with input: 6
+Testing input 6
+Cleaned test output: 36
+Expected output:     36
+Test output seems correct
+Run completed.
+Starting run 28 with input: 7
+Testing input 7
+Cleaned test output: 49
+Expected output:     49
+Test output seems correct
+Run completed.
+Starting run 29 with input: 8
+Testing input 8
+Cleaned test output: 64
+Expected output:     64
+Test output seems correct
+Run completed.
+Starting run 30 with input: 9
+Testing input 9
+Cleaned test output: 81
+Expected output:     81
+Test output seems correct
+Run completed.
+Starting run 31 with input: 10
+Testing input 10
+Cleaned test output: 100
+Expected output:     100
+Test output seems correct
+Run completed.
+Starting run 32 with input: 11
+Testing input 11
+Cleaned test output: 121
+Expected output:     121
+Test output seems correct
+Run completed.
+Starting run 33 with input: 12
+Testing input 12
+Cleaned test output: 144
+Expected output:     144
+Test output seems correct
+Run completed.
+Starting run 34 with input: 13
+Testing input 13
+Cleaned test output: 169
+Expected output:     169
+Test output seems correct
+Run completed.
+Starting run 35 with input: 14
+Testing input 14
+Cleaned test output: 196
+Expected output:     196
+Test output seems correct
+Run completed.
+Starting run 36 with input: 15
+Testing input 15
+Cleaned test output: 225
+Expected output:     225
+Test output seems correct
+Run completed.
+Starting run 37 with input: 16
+Testing input 16
+Cleaned test output: 256
+Expected output:     256
+Test output seems correct
+Run completed.
+Starting run 38 with input: 17
+Testing input 17
+Cleaned test output: 289
+Expected output:     289
+Test output seems correct
+Run completed.
+Starting run 39 with input: 18
+Testing input 18
+Cleaned test output: 324
+Expected output:     324
+Test output seems correct
+Run completed.
+Starting run 40 with input: 19
+Testing input 19
+Cleaned test output: 361
+Expected output:     361
+Test output seems correct
+Run completed.
+Starting run 41 with input: 20
+Testing input 20
+Cleaned test output: 400
+Expected output:     400
+Test output seems correct
+Run completed.

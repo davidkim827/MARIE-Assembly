@@ -1,0 +1,125 @@
+// Name: David Kim
+// Class: CSC 205-M002
+// Date: 2018-03-11
+
+// This project examines the usage and proficiency of the MARIE Assembly Language.
+// The project accepts an ASCII character as an input, outputs the decimal value, 
+// iterates linearly through 7 checks to see if it is within the binary value bounds, and then
+// updates the count of the number of 1s that the binary representation contains. The program
+// updates the parity bit to toggle (add 1 or subtract 1 based on the value of the pbit)
+// whenever the count of 1s increments by 1. The program then outputs the count of 1s and 
+// the pbit value, then clears the variables as well as the AC before looping back to the
+// beginning.
+
+// Though an array based approach would have allowed for the scalability
+// of the program, I figured that linear programming would allow for better efficiency.
+
+
+	JUMP Start	// Jumps to start of program
+
+bit6,	DEC 64    	// In 8b-binary: 01000000
+bit5,	DEC 32    	// In 8b-binary: 00100000
+bit4,	DEC 16    	// In 8b-binary: 00010000
+bit3,	DEC 8      	// In 8b-binary: 00001000
+bit2,	DEC 4	     	// In 8b-binary: 00000100
+bit1,	DEC 2	     	// In 8b-binary: 00000010
+bit0,	DEC 1	     	// In 8b-binary: 00000001
+
+//Constants
+x, 	DEC 0		// Holds input value
+one,	DEC 1		// Constant value 1	
+count,	DEC 0		// Contains number of 1s in the binary input value
+pbit, 	DEC 0		// Considers whether parity bit is needed or not
+diff,	DEC 0		// difference of value from input and binary bits
+zero, 	DEC 0		// Reset value for value of x and count and pbit
+
+
+Start, 	INPUT		// Asks for user input
+	STORE x		// Stores value in a variable x
+	OUTPUT		// Outputs the value in the AC currently
+
+//checks for each of the 7 binary bit values
+check6,	LOAD x		// Loads stored input to AC for checking the 7th bit (bit position 6) out of 7 bit ASCII binary number AC
+	SUBT bit6	// Checks to see if X >= 2^6, if it is then,
+	STORE diff	// Store the difference of input and 2^6 in diff variable
+	SKIPCOND 000	// If the difference is less than 0, skip the update subroutine
+	JNS update	// If the difference is greater than 0, go to the update subroutine
+
+check5,	LOAD x		// Loads stored input to AC for checking the 6th bit out (bit position 5) of 7 bit ASCII binary number AC
+	SUBT bit5	// Checks to see if X >= 2^5, if it is then
+	STORE diff	// Store the difference of input and 2^5 in diff variable
+	SKIPCOND 000	// If the difference is less than 0, skip the update subroutine
+	JNS update	// If the difference is greater than 0, go to the update subroutine
+
+check4,	LOAD x		// Loads stored input to AC for checking the 5th bit (bit position 4) out of 7 bit ASCII binary number AC
+	SUBT bit4	// Checks to see if X >= 2^4, if it is then,
+	STORE diff	// Store the difference of input and 2^4 in diff variable
+	SKIPCOND 000	// If the difference is less than 0, skip the update subroutine
+	JNS update	// If the difference is greater than 0, go to the update subroutine
+
+check3,	LOAD x		// Loads stored input to AC for checking the 4th bit (bit position 3) out of 7 bit ASCII binary number AC
+	SUBT bit3	// Checks to see if X >= 2^3, if it is then,
+	STORE diff	// Store the difference of input and 2^3 in diff variable
+	SKIPCOND 000	// If the difference is less than 0, skip the update subroutine
+	JNS update	// If the difference is greater than 0, go to the update subroutine
+
+check2,	LOAD x		// Loads stored input to AC for checking the 3rd bit (bit position 2) out of 7 bit ASCII binary number AC
+	SUBT bit2	// Checks to see if X >= 2^2, if it is then,
+	STORE diff	// Store the difference of input and 2^2 in diff variable
+	SKIPCOND 000	// If the difference is less than 0, skip the update subroutine
+	JNS update	// If the difference is greater than 0, go to the update subroutine
+
+check1,	LOAD x 		// Loads stored input to AC for checking the 2nd bit (bit position 1) out of 7 bit ASCII binary number AC
+	SUBT bit1	// Checks to see if X >= 2^1, if it is then,
+	STORE diff	// Store the difference of input and 2^1 in diff variable
+	SKIPCOND 000	// If the difference is less than 0, skip the update subroutine
+	JNS update	// If the difference is greater than 0, go to the update subroutine
+
+check0,	LOAD x		// Loads stored input to AC for checking the 1st bit (bit position 0) out of 7 bit ASCII binary number to AC
+	SUBT bit0	// Checks to see if X >= 2^0, if it is then,
+	STORE diff	// Store the difference of input and 2^0 in diff variable
+	SKIPCOND 000	// If the difference is less than 0, skip the update subroutine
+	JNS update	// If the difference is greater than 0, go to the update subroutine
+
+//Outputs count and pbit values
+	LOAD count	// Loads the updated count of number of 1s in the binary representation of ASCII character to AC
+	OUTPUT		// Outputs to OutREG the count from AC
+	CLEAR		// Clears the AC
+	LOAD pbit	// Loads the parity bit value that was updated in the toggle subroutine during bit checks
+	OUTPUT		// Outputs to OutREG the pbit from AC
+	CLEAR		// Clears AC
+
+//Resets all values
+	LOAD zero	// Loads zero value to use to clear the variables
+	STORE x		// Stores in variable x to clear any values
+	STORE pbit	// Stores in variable pbit to clear any values
+	STORE count	// Stores in variable count to clear any values
+
+//Loops back to beginning
+Loop,	JUMP Start
+
+//updates the count, pbit, and input values
+update,	HEX 0		// Stores the previous location + 1 to jump back to
+	LOAD diff	// Loads the difference value stored previously in the bit check to AC
+	STORE x		// Stores the difference in AC as a new value of x because the previous value was >= 2^(value of the bit check)
+	CLEAR		// Clears the AC
+	LOAD count	// Loads the current count of 1s so far to AC
+	ADD one		// Adds a 1 to the count, to verify that we have checked that the position is now updated
+	STORE count	// Stores the value back to count variable
+	CLEAR		// Clears the AC
+	JNS toggle	// Jumps to toggle routine to toggle the pbit that is needed
+	JUMPI update	// Jumps back to the update label to jump back from the subroutine to the main program
+
+//toggles parity bit
+toggle, HEX 0		// Stores previous location + 1 to jump back to
+	LOAD pbit	// Loads the current pbit value to AC
+	SKIPCOND 800	// If pbit currently is > 0 then skip the next condition
+	JUMP add	// If pbit currently is <= 0 then jump to the add label
+	JUMP sub	// If pbit currently is > 0 then jump to sub label
+add,	ADD one		// Adds 1 to the pbit value currently (it should be 0)
+	STORE pbit	// Stores the updated pbit value to pbit variable (should be now 1)
+	JUMP endtog	// Jumps to end of the subroutine
+sub,	SUBT one	// Subtracts 1 from pbit value currently (should be 1)
+	STORE pbit	// Stores the updated pbit value to pbit variable (should be now 0)
+endtog,	JUMPI toggle	// Jumps back to the toggle label to jump back from the subroutine to the update subroutine
+

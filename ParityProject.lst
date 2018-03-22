@@ -1,0 +1,162 @@
+     Assembly listing for: ParityProject.mas
+                Assembled: Mon Mar 12 17:44:21 EDT 2018
+
+         |                          // Name: David Kim
+         |                          // Class: CSC 205-M002
+         |                          // Date: 2018-03-11
+         |                          
+         |                          // This project examines the usage and proficiency of the MARIE Assembly Language.
+         |                          // The project accepts an ASCII character as an input, outputs the decimal value, 
+         |                          // iterates linearly through 7 checks to see if it is within the binary value bounds, and then
+         |                          // updates the count of the number of 1s that the binary representation contains. The program
+         |                          // updates the parity bit to toggle (add 1 or subtract 1 based on the value of the pbit)
+         |                          // whenever the count of 1s increments by 1. The program then outputs the count of 1s and 
+         |                          // the pbit value, then clears the variables as well as the AC before looping back to the
+         |                          // beginning.
+         |                          
+         |                          // Though an array based approach would have allowed for the scalability
+         |                          // of the program, I figured that linear programming would allow for better efficiency.
+         |                          
+         |                          
+000 900E |         JUMP Start       // Jumps to start of program
+         |                          
+001 0040 |  bit6   DEC 64           // In 8b-binary: 01000000
+002 0020 |  bit5   DEC 32           // In 8b-binary: 00100000
+003 0010 |  bit4   DEC 16           // In 8b-binary: 00010000
+004 0008 |  bit3   DEC 8            // In 8b-binary: 00001000
+005 0004 |  bit2   DEC 4            // In 8b-binary: 00000100
+006 0002 |  bit1   DEC 2            // In 8b-binary: 00000010
+007 0001 |  bit0   DEC 1            // In 8b-binary: 00000001
+         |                          
+         |                          //Constants
+008 0000 |  x      DEC 0            // Holds input value
+009 0001 |  one    DEC 1            // Constant value 1	
+00A 0000 |  count  DEC 0            // Contains number of 1s in the binary input value
+00B 0000 |  pbit   DEC 0            // Considers whether parity bit is needed or not
+00C 0000 |  diff   DEC 0            // difference of value from input and binary bits
+00D 0000 |  zero   DEC 0            // Reset value for value of x and count and pbit
+         |                          
+         |                          
+00E 5000 |  Start  INPUT            // Asks for user input
+00F 2008 |         STORE x          // Stores value in a variable
+010 6000 |         OUTPUT           // Outputs the value in the AC currently
+         |                          
+         |                          //checks for each of the 7 binary bit values
+011 1008 |  check6 LOAD x            
+012 4001 |         SUBT bit6         
+013 200C |         STORE diff        
+014 8000 |         SKIPCOND 000      
+015 003F |         JNS update        
+016 1008 |  check5 LOAD x            
+017 4002 |         SUBT bit5         
+018 200C |         STORE diff        
+019 8000 |         SKIPCOND 000      
+01A 003F |         JNS update        
+01B 1008 |  check4 LOAD x            
+01C 4003 |         SUBT bit4         
+01D 200C |         STORE diff        
+01E 8000 |         SKIPCOND 000      
+01F 003F |         JNS update        
+020 1008 |  check3 LOAD x            
+021 4004 |         SUBT bit3         
+022 200C |         STORE diff        
+023 8000 |         SKIPCOND 000      
+024 003F |         JNS update        
+025 1008 |  check2 LOAD x            
+026 4005 |         SUBT bit2         
+027 200C |         STORE diff        
+028 8000 |         SKIPCOND 000      
+029 003F |         JNS update        
+02A 1008 |  check1 LOAD x            
+02B 4006 |         SUBT bit1         
+02C 200C |         STORE diff        
+02D 8000 |         SKIPCOND 000      
+02E 003F |         JNS update        
+02F 1008 |  check0 LOAD x            
+030 4007 |         SUBT bit0         
+031 200C |         STORE diff        
+032 8000 |         SKIPCOND 000      
+033 003F |         JNS update        
+         |                          
+         |                          //Outputs count and pbit values
+034 100A |         LOAD count        
+035 6000 |         OUTPUT            
+036 A000 |         CLEAR             
+037 100B |         LOAD pbit         
+038 6000 |         OUTPUT            
+039 A000 |         CLEAR             
+         |                          
+         |                          //Resets all values
+03A 100D |         LOAD zero         
+03B 2008 |         STORE x           
+03C 200B |         STORE pbit        
+03D 200A |         STORE count       
+         |                          
+         |                          //Loops back to beginning
+03E 900E |  Loop   JUMP Start        
+         |                          
+         |                          //updates the count, pbit, and input values
+03F 0000 |  update HEX 0             
+040 100C |         LOAD diff         
+041 2008 |         STORE x           
+042 A000 |         CLEAR             
+043 100A |         LOAD count        
+044 3009 |         ADD one           
+045 200A |         STORE count       
+046 A000 |         CLEAR             
+047 0049 |         JNS toggle        
+048 C03F |         JUMPI update      
+         |                          
+         |                          //toggles parity bit
+049 0000 |  toggle HEX 0             
+04A 100B |         LOAD pbit         
+04B 8800 |         SKIPCOND 800      
+04C 904E |         JUMP add          
+04D 9051 |         JUMP sub          
+04E 3009 |  add    ADD one           
+04F 200B |         STORE pbit        
+050 9053 |         JUMP endtog       
+051 4009 |  sub    SUBT one          
+052 200B |         STORE pbit        
+053 C049 |  endtog JUMPI toggle      
+         |                          
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          Loop   |   03E   | 
+          Start  |   00E   | 000, 03E
+          add    |   04E   | 04C
+          bit0   |   007   | 030
+          bit1   |   006   | 02B
+          bit2   |   005   | 026
+          bit3   |   004   | 021
+          bit4   |   003   | 01C
+          bit5   |   002   | 017
+          bit6   |   001   | 012
+          check0 |   02F   | 
+          check1 |   02A   | 
+          check2 |   025   | 
+          check3 |   020   | 
+          check4 |   01B   | 
+          check5 |   016   | 
+          check6 |   011   | 
+          count  |   00A   | 034, 03D, 043, 045
+          diff   |   00C   | 013, 018, 01D, 022, 027, 02C, 
+                 |         | 031, 040
+          endtog |   053   | 050
+          one    |   009   | 044, 04E, 051
+          pbit   |   00B   | 037, 03C, 04A, 04F, 052
+          sub    |   051   | 04D
+          toggle |   049   | 047, 053
+          update |   03F   | 015, 01A, 01F, 024, 029, 02E, 
+                 |         | 033, 048
+          x      |   008   | 00F, 011, 016, 01B, 020, 025, 
+                 |         | 02A, 02F, 03B, 041
+          zero   |   00D   | 03A
+         --------------------------------------------------
+
+

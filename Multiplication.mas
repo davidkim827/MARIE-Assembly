@@ -1,0 +1,38 @@
+	INPUT		//Take user input
+			
+//Negative Integers	
+If,	SKIPCOND 000
+	JUMP Else	//It is a positive integer; jump to else
+	STORE NegN	//Stores negative number	
+	LOAD A		//Loads A
+	SUBT NegN	//Gets absolute value of negative integer to multiply
+	JUMP Else	//Jumps to Else
+
+//Positive Integers
+Else,	STORE A		//Store user input into A
+	STORE LOOPN	//Store number of times to loop
+	JnS Square	//Jumps to Multiplication Function
+	JUMP Done	//Jumps to finish
+
+Done,	LOAD Result	//Loads decimal value of A to AC
+	OUTPUT		//Outputs A as a decimal value
+	HALT		//Stop.
+
+A, 	DEC 0
+LOOPN, 	DEC 0
+ONE, 	DEC 1
+Result, DEC 0
+NegN, 	DEC 0
+
+//Square Function
+Square, Hex 0
+LOOP,	LOAD LOOPN	//Number of loops is A
+	SKIPCOND 800	//Skips next instruction if LOOPN > 0
+	JUMPI Square	//Jump Back out of function
+ 	LOAD Result	//Loads result into AC
+	ADD A		//Adds A to result
+	STORE Result	//Store value back to Result
+	LOAD LOOPN	//Load LOOPN
+	SUBT ONE	//Decrements COUNT by 1
+	STORE LOOPN	//Stores value
+	JUMP LOOP	//Jumps back to while loop
