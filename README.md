@@ -9,6 +9,6 @@ by Linda Null and Julia Lobur for their textbook, "The Essentials of Computer Or
 
 Some resources to understand the MARIE, its Instruction Set and RTLs can be found at these webpages:
 
-  https://github.com/MARIE-js/MARIE.js/wiki/Introduction-to-MARIE
-  https://github.com/MARIE-js/MARIE.js/wiki/MARIE-Instruction-Set-(with-Opcodes)
-  https://github.com/MARIE-js/MARIE.js/wiki/Datapath-Simulator
+- https://github.com/MARIE-js/MARIE.js/wiki/Introduction-to-MARIE
+- https://github.com/MARIE-js/MARIE.js/wiki/MARIE-Instruction-Set-(with-Opcodes)
+- https://github.com/MARIE-js/MARIE.js/wiki/Datapath-Simulator
