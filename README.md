@@ -1,5 +1,7 @@
 # MARIE-Assembly
 
+<b><i>Use of any code in this repo in any form for academic purposes is considered cheating, which is not only unfair to your classmates, but as well as yourself. Use at your own risk.</i></b>
+
 This repository consists of a project with basic development work I completed for CSC-205: Computer Organization at NVCC Manassas, 
 under the direction of Dr. Annie Hui. 
 
